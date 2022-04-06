@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 import os
 import django
-import django_heroku
+# import django_heroku
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -139,8 +139,10 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATICFILES_DIRS = [STATIC_DIR,]
-STATIC_ROOT = os.path.join(BASE_DIR ,'staticfiles')
+# STATICFILES_DIRS = [STATIC_DIR,]
+# STATIC_ROOT = os.path.join(BASE_DIR ,'staticfiles')
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 MEDIA_URL = '/images/'
@@ -159,5 +161,5 @@ LOGIN_REDIRECT_URL = 'store'
 
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '566463432078-j9d7ick4qsl8tltc87up7juf34t4q06p.apps.googleusercontent.com'
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '2UjmE-lYmCyUEARQuHOTHSyc'
-django_heroku.settings(locals())
+# django_heroku.settings(locals())
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
