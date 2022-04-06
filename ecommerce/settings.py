@@ -160,3 +160,4 @@ LOGIN_REDIRECT_URL = 'store'
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '566463432078-j9d7ick4qsl8tltc87up7juf34t4q06p.apps.googleusercontent.com'
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '2UjmE-lYmCyUEARQuHOTHSyc'
 django_heroku.settings(locals())
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
