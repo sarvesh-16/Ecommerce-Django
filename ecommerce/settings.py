@@ -12,6 +12,10 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 import os
 import django
+import dj_database_url
+from django.db import DatabaseError 
+prod_db  =  dj_database_url.config(conn_max_age=500)
+DatabaseError['default'].update(prod_db)
 # import django_heroku
 
 
@@ -29,7 +33,7 @@ SECRET_KEY = 'b_jk^-3-9x5@!xfc#ocq8^=9^2ie2-100uxr2hujt))a=&ni9u'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['ecommerce-sarvesh.herokuapp.com']
 
 
 # Application definition
@@ -45,7 +49,8 @@ INSTALLED_APPS = [
     'accounts',
     'social_django',
     'crispy_forms',
-    'rest_framework'
+    'rest_framework',
+    'herokuapp'
 ]
 
 AUTHENTICATION_BACKENDS = (
@@ -56,6 +61,7 @@ AUTHENTICATION_BACKENDS = (
 )
 
 MIDDLEWARE = [
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -163,3 +169,5 @@ SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '566463432078-j9d7ick4qsl8tltc87up7juf34t4q06p.a
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '2UjmE-lYmCyUEARQuHOTHSyc'
 # django_heroku.settings(locals())
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
